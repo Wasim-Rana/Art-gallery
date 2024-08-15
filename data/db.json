@@ -1,0 +1,18 @@
+[
+	{ "id": 1,  "title": "Abstract Painting", "price": 150, "type": "Painting", "imgsrc": "path/to/image1.jpg" },
+    { "id": 2,  "title": "Sculpture Art", "price": 300, "type": "Sculpture", "imgsrc": "path/to/image2.jpg" },
+    { "id": 3,  "title": "Landscape Painting", "price": 200, "type": "Painting", "imgsrc": "path/to/image3.jpg" },
+    { "id": 4,  "title": "Modern Sculpture", "price": 400, "type": "Sculpture", "imgsrc": "path/to/image4.jpg" },
+    { "id": 5,  "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 6,  "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 7,  "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 8,  "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 9,  "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 10, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 11, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 12, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 13, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 14, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 15, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"},
+    { "id": 16, "title": "" ,"price":500 , "type" : "" , "imgsrc":"path/to/image4.jpg"}
+]
