@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-attachment: fixed;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #404040;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+header {
+    background-color: rgba(241, 241, 241, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+#nav1 {
+    justify-content: space-between;
+}
+
+#nav1 > section {
+    display: flex;
+    align-items: center;
+}
+
+#nav1 > section a {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+span {
+    margin-left: 10px;
+}
+
+#nav2 {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.art-gallery {
+    font-size: 40px;
+}
+
+.main-container {
+    text-align: center;
+    padding: 50px 20px;
+    width: 100%;
+    height: 750px;
+   
+}
+
+
+.content-intro h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.content-intro p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.read-more {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-brand h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-size: 1em;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.footer-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ff6347;
+}
+
+.social-media i {
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.back-to-top {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.back-to-top:hover {
+    color: #ff6347;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .footer-brand h1 {
+        font-size: 1.8em;
+    }
+
+    .footer-columns {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-brand h1 {
+        font-size: 1.6em;
+    }
+
+    .footer-columns {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-brand h1 {
+        font-size: 1.4em;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-column {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-brand h1 {
+        font-size: 1.2em;
+    }
+
+    .footer-brand p {
+        font-size: 0.9em;
+    }
+
+    .footer-column h3 {
+        font-size: 1em;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+        font-size: 0.9em;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+
+    .back-to-top {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+}
