@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Indus Valley Art Gallery</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="nav1" class="nav">
+                <section id="contact_info">
+                    <a href="tel:6355753883"><i class="fa-solid far fas fa-phone-volume" style="margin-right: 2px;"></i><span class="number"></span></a>
+                    <a href="mailto:wasimrana2004@gmail.com"><i class="fa-solid far fas fa-envelope" style="margin-right: 2px;"></i><span class="email"></span></a>
+                </section>
+                <section id="Acc_cart">
+                    <a href="admin.html"><i class="fa-solid far fa-user" style="margin-right: 2px;"></i></a>
+                    <a href="cart.html"><i class="fa-solid far fas fa-shopping-cart" style="margin-right: 2px;"></i><span id="cart-count">0</span></a>
+                </section>
+            </div>
+            <div id="nav2">
+                <a href="index.html">
+                <span class="art-gallery">Indus Valley Art Gallery</span>
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h1>Dashboard</h1>
+        <div id="orders-container">
+            <!-- Orders will be dynamically populated here -->
+        </div>
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
