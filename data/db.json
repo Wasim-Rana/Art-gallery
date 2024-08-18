@@ -13,7 +13,6 @@
     { "id": 12, "title": "Modern Photography" , "price":500 , "type" : "Photography" ,  "imgsrc":""},
     { "id": 13, "title": "Imression Art" ,      "price":500 , "type" : "Impression" ,   "imgsrc":""},
     { "id": 14, "title": "Modern Photography" , "price":500 , "type" : "Photography" ,  "imgsrc":""},
-    { "id": 14, "title": "Modern Photography" , "price":500 , "type" : "Photography" ,  "imgsrc":""},
     { "id": 15, "title": "Imression Art" ,      "price":500 , "type" : "Impression" ,   "imgsrc":""},
     { "id": 16, "title": "live Drawing" ,       "price":500 , "type" : "Drawing" ,      "imgsrc":""},
     { "id": 17, "title": "Modern Drawing" ,     "price":500 , "type" : "Drawing" ,      "imgsrc":""},
