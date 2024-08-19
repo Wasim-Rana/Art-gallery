@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover;
+    background: url('homepage_background2.jpg') no-repeat center center/cover;
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
