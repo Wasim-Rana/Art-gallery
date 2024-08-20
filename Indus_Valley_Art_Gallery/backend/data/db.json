@@ -16,7 +16,7 @@
     { "id": 15, "title": "Imression Art" ,      "price":500 , "type" : "Impression" ,   "imgsrc":"images/impression/impression5.jpg"},
     { "id": 16, "title": "live Drawing" ,       "price":500 , "type" : "Drawing" ,      "imgsrc":"images/drawing/drawing1.jpg"},
     { "id": 17, "title": "Modern Drawing" ,     "price":500 , "type" : "Drawing" ,      "imgsrc":"images/drawing/drawing2.jpg"},
-    { "id": 18, "title": "Modern Drawing" ,     "price":500 , "type" : "Drawing" ,      "imgsrc":"images/drawing/kept-in-the-dark.jpg"},
+    { "id": 18, "title": "Modern Drawing" ,     "price":500 , "type" : "Drawing" ,      "imgsrc":"Indus_Valley_Art_Gallery/asli_frontend/images/drawing/drawing1.jpg"},
     { "id": 19, "title": "Modern Drawing" ,     "price":500 , "type" : "Drawing" ,      "imgsrc":"images/drawing/was-it-not-a-lie.jpg"},
     { "id": 20, "title": "Modern Photography" , "price":500 , "type" : "Photography" ,  "imgsrc":"images/photography/photo3.jpg"}
    
