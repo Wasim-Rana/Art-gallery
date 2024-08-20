@@ -101,13 +101,61 @@ span {
     margin-bottom: 30px;
 }
 
-.read-more {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
+.read-more{
+    --color: #00A97F;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-}
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+   }
+   
+   .read-more::before, .read-more::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+   }
+   
+   .read-more::before {
+    top: -1em;
+    left: -1em;
+   }
+   
+   .read-more::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+   }
+   
+   .read-more:hover::before, .read-more:hover::after {
+    height: 410px;
+    width: 410px;
+   }
+   
+   .read-more:hover {
+    color: rgb(10, 25, 30);
+   }
+   
+   .read-more:active {
+    filter: brightness(.8);
+   }
+   
+
 
 footer {
     background-color: #111;
