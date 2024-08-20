@@ -82,6 +82,7 @@ span {
     font-size: 40px;
 }
 .main-container {
+    min-height: 70vh;
     min-width: 80vh;
     padding: 20px;
 }
@@ -138,6 +139,7 @@ span {
 }
 
 footer {
+    
     background-color: #111;
     color: #fff;
     padding: 40px 0;
