@@ -107,6 +107,12 @@ span {
     margin: 10px;
     width: 200px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.product-item:hover{
+    scale:1.05;
+
 }
 
 .product-item img {
