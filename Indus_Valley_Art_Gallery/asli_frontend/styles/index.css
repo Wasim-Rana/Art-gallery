@@ -78,12 +78,26 @@ span {
     color: white;
     text-align: center;
     padding: 10px 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
 }
 
 .art-gallery {
-    font-size: 40px;
+    font-size: 20px;
+    max-width: 20%;
+    
+    
 }
-
+#products{
+    min-width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
 .main-container {
     text-align: center;
     padding: 50px 20px;
