@@ -6,7 +6,8 @@
 
 body {
     width: 100%;
-    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/about_background.jpg') no-repeat center center/cover ;
+    /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/about_background.jpg') no-repeat center center/cover ; */
+    background-color: antiquewhite;
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
@@ -69,7 +70,7 @@ nav {
 }
 
 span {
-    margin-left: 10px;
+    margin: 0 10px 0 10px;
 }
 
 #nav2 {
