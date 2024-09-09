@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +7,7 @@
 body {
     width: 100%;
     /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover; */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: antiquewhite;
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
@@ -326,3 +325,4 @@ footer {
         margin-bottom: 10px;
     }
 }
+
