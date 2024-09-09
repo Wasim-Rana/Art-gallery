@@ -78,20 +78,14 @@ span {
     text-align: center;
     padding: 10px 0;
     display: flex;
-
-}
-
-.art-gallery {
-    font-size: 40px;
-    display: flex;
     flex-grow: 1;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .art-gallery {
     padding: 5px;
     font-size: 20px;
-    width: 30%;
+    max-width: 30%;
     
     
 }
