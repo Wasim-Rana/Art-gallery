@@ -76,10 +76,26 @@ span {
     color: white;
     text-align: center;
     padding: 10px 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
 }
 
 .art-gallery {
-    font-size: 40px;
+    padding: 5px;
+    font-size: 20px;
+    max-width: 30%;
+    
+    
+}
+#navigations{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    
 }
 .main-container {
     min-height: 70vh;
