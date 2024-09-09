@@ -6,7 +6,8 @@
 
 body {
     width: 100%;
-    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover;
+    /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover; */
+    background-color: antiquewhite;
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
@@ -76,6 +77,7 @@ span {
     color: white;
     text-align: center;
     padding: 10px 0;
+    display: flex;
 
 }
 
@@ -83,13 +85,13 @@ span {
     font-size: 40px;
     display: flex;
     flex-grow: 1;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .art-gallery {
     padding: 5px;
     font-size: 20px;
-    max-width: 30%;
+    width: 30%;
     
     
 }
