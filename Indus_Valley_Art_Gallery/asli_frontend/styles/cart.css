@@ -76,12 +76,11 @@ span {
     color: white;
     text-align: center;
     padding: 10px 0;
-<<<<<<< HEAD
+
 }
 
 .art-gallery {
     font-size: 40px;
-=======
     display: flex;
     flex-grow: 1;
     justify-content: space-evenly;
@@ -102,7 +101,6 @@ span {
     text-align: center;
     gap: 1rem;
     
->>>>>>> 8a25bea2750eb7ffdc83f239afa708e1fdf3cebe
 }
 .main-container {
     min-height: 70vh;
