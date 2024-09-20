@@ -1,19 +1,23 @@
+const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const mysql = require('mysql');
 const cors = require('cors');
+const bcrypt = require('bcrypt'); // Ensure bcrypt is installed
 const app = express();
+
+// Load environment variables if using dotenv
+require('dotenv').config();
 
 // Path to JSON file for arts (still using this for arts data)
 const path = './data/db.json';
 
-// MySQL connection setup
+// MySQL connection setup using the new user
 const db = mysql.createConnection({
-    host: 'localhost',  // Replace with your MySQL host
-    user: 'root',       // Replace with your MySQL username
-    password: '047881',       // Replace with your MySQL password
-    database: 'Art-galleryDB' // Replace with your MySQL database name
+    host: 'localhost',           // Typically 'localhost'
+    user: 'root',           // Your new MySQL username
+    password: '7881',    // Your new MySQL password
+    database: 'Art-galleryDB'   // Ensure this matches your database name
 });
 
 // Connect to MySQL
@@ -30,39 +34,54 @@ app.use(cors());
 
 /* ------- User Authentication (using MySQL) ------- */
 
-// User Registration
-app.post('/register', (req, res) => {
+// User Registration with Password Hashing
+app.post('/register', async (req, res) => {
     const { uname, email, u_password } = req.body;
 
-    console.log('Received registration data:', req.body); // Log incoming data
+    console.log('Received registration data:', req.body); // Logging
 
-    const query = 'INSERT INTO users (uname, email, u_password) VALUES (?, ?, ?)';
-    db.query(query, [uname, email, u_password], (err, result) => {
-        if (err) {
-            console.error('Error registering user:', err); // Log error
-            return res.status(500).json({ message: 'Registration failed.', error: err });
-        }
-        console.log('User registered with ID:', result.insertId); // Log success
-        res.json({ message: 'User registered successfully!', userId: result.insertId });
-    });
+    try {
+        const hashedPassword = await bcrypt.hash(u_password, 10); // Hash the password with salt rounds = 10
+
+        const query = 'INSERT INTO users (uname, email, u_password) VALUES (?, ?, ?)';
+        db.query(query, [uname, email, hashedPassword], (err, result) => {
+            if (err) {
+                console.error('Error registering user:', err); // Log error
+                return res.status(500).json({ message: 'Registration failed.', error: err });
+            }
+            console.log('User registered with ID:', result.insertId); // Log success
+            res.json({ message: 'User registered successfully!', userId: result.insertId });
+        });
+    } catch (error) {
+        console.error('Error hashing password:', error);
+        res.status(500).json({ message: 'Registration failed.' });
+    }
 });
 
-// User Login
+// User Login with Password Verification
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    console.log('Received login data:', req.body); // Log incoming data
+    console.log('Received login data:', req.body); // Logging
 
-    const query = 'SELECT * FROM users WHERE uname = ? AND u_password = ?';
-    db.query(query, [username, password], (err, results) => {
+    const query = 'SELECT * FROM users WHERE uname = ?';
+    db.query(query, [username], async (err, results) => {
         if (err) {
             console.error('Error logging in user:', err); // Log error
             return res.status(500).json({ message: 'Login failed.', error: err });
         }
 
         if (results.length > 0) {
-            console.log('User logged in:', results[0].uname); // Log success
-            res.json({ message: 'Login successful!', username: results[0].uname });
+            const user = results[0];
+            const match = await bcrypt.compare(password, user.u_password); // Compare hashed passwords
+
+            if (match) {
+                console.log('User logged in:', user.uname); // Log success
+                res.json({ message: 'Login successful!', username: user.uname });
+            } else {
+                console.log('Invalid password for username:', username); // Log invalid attempt
+                res.status(401).json({ message: 'Invalid username or password.' });
+            }
         } else {
             console.log('Invalid login attempt for username:', username); // Log invalid attempt
             res.status(401).json({ message: 'Invalid username or password.' });
@@ -141,8 +160,8 @@ app.put('/arts/:reference', (req, res) => {
     });
 });
 
-// Server setup
-const PORT = process.env.PORT || 3000;
+// Server setup using environment variables
+const PORT = process.env.PORT || 3000; 
 app.listen(PORT, () => {
     console.log(`Art Gallery Server running on port ${PORT}`);
 });
