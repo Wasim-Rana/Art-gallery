@@ -15,6 +15,7 @@ body {
 }
 .login-container {
     width: auto;
+    height: 50vh;
     max-width: 500px;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
