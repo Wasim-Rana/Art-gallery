@@ -14,10 +14,11 @@ const path = './data/db.json';
 
 // MySQL connection setup using the new user
 const db = mysql.createConnection({
-    host: 'localhost',           // Typically 'localhost'
+    host: 'wasim',           // Typically 'localhost'
     user: 'root',           // Your new MySQL username
     password: '7881',    // Your new MySQL password
-    database: 'Art-galleryDB'   // Ensure this matches your database name
+    database: 'art_gallery_db',   // Ensure this matches your database name
+    port:3306,
 });
 
 // Connect to MySQL
