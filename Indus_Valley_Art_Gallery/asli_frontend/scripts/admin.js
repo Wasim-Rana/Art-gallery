@@ -47,44 +47,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // User login functionality
     const userLoginForm = document.getElementById('user-login-form');
-    if (userLoginForm) {
-        userLoginForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+if (userLoginForm) {
+    userLoginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const username = document.getElementById('user-username').value;
-            const password = document.getElementById('user-password').value;
+        const username = document.getElementById('user-username').value;
+        const password = document.getElementById('user-password').value;
 
-            const savedCredentials = JSON.parse(localStorage.getItem('userCredentials')) || {};
+        try {
+            const response = await fetch('http://localhost:3000/login', { // Ensure correct URL and port
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
 
-            if (savedCredentials.username === username && savedCredentials.password === password) {
+            const data = await response.json();
+
+            if (response.ok) {
                 alert('User login successful!');
+                localStorage.setItem('userName', data.username); // Store username for greeting
                 window.location.href = 'index.html';  // Redirect to user home page
             } else {
                 alert('Invalid username or password.');
             }
-        });
-    }
+        } catch (error) {
+            console.error('Error logging in:', error);
+            alert('An error occurred during login.');
+        }
+    });
+}
+
 
     // User registration functionality
     const userRegisterForm = document.getElementById('user-register-form');
-    if (userRegisterForm) {
-        userRegisterForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+if (userRegisterForm) {
+    userRegisterForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const newUsername = document.getElementById('register-username').value;
-            const newEmail = document.getElementById('register-email').value;
-            const newPassword = document.getElementById('register-password').value;
+        const newUsername = document.getElementById('register-username').value;
+        const newEmail = document.getElementById('register-email').value;
+        const newPassword = document.getElementById('register-password').value;
 
-            // Save credentials in localStorage
-            localStorage.setItem('userCredentials', JSON.stringify({
-                username: newUsername,
-                email:newEmail,
-                password: newPassword
-            }));
+        try {
+            const response = await fetch('http://localhost:3000/register', { // Ensure correct URL and port
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    uname: newUsername,
+                    email: newEmail,
+                    u_password: newPassword
+                })
+            });
 
-            alert('Registration successful! You can now log in.');
-            document.getElementById('user-register-form').style.display = 'none';
-            document.getElementById('user-login-form').style.display = 'block';
-        });
-    }
+            const data = await response.json();
+
+            if (response.ok) {
+                alert(data.message);
+                userRegisterForm.style.display = 'none';
+                document.getElementById('user-login-form').style.display = 'block';
+            } else {
+                alert(data.message || 'Registration failed.');
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('An error occurred during registration.');
+        }
+    });
+}
 });
