@@ -14,7 +14,7 @@ const path = './data/db.json';
 
 // MySQL connection setup using the updated parameters
 const db = mysql.createConnection({
-    host: 'wasim',              // Changed to 'localhost'
+    host: 'localhost',              // Corrected host
     user: 'root',                   // Your MySQL username
     password: '7881',               // Your MySQL password
     database: 'art_gallery_db',     // Ensure this matches your database name
@@ -24,7 +24,10 @@ const db = mysql.createConnection({
 // Connect to MySQL
 db.connect((err) => {
     if (err) {
-        console.error('MySQL connection failed:', err.stack);
+        console.error('MySQL connection failed:');
+        console.error(`Error Code: ${err.code}`);
+        console.error(`Error Message: ${err.message}`);
+        console.error(`Error Stack: ${err.stack}`);
         return;
     }
     console.log('MySQL connected as id ' + db.threadId);
