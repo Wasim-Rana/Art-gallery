@@ -12,13 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const uname = localStorage.getItem('userName');
     const ublock = document.getElementById('uname');
 
-    if (uname) {
-        ublock.innerHTML = `<p>Hello ${uname}</p>`;
-        document.getElementById('profile-details').style.display = 'block';  // Show the profile block
-    } else {
-        document.getElementById('profile-details').style.display = 'none';  // Hide the profile block if no user is logged in
-    }
+    let picon= document.getElementById('profile-icon');
+    let pblock=document.getElementById('profile-details')
+    
+    picon.addEventListener('click' ,() =>{
 
+        pblock.style.display='block'
+    })
+
+    let pclose=document.getElementById('close')
+    pclose.addEventListener('click',()=>{
+        pblock.style.display='none'
+    })
     // Log-out button functionality
     const btn = document.getElementById('btn');
     if (btn) {

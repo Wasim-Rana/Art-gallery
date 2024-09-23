@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const userLoginBtn = document.getElementById('user-login-btn');
 
     if (adminLoginBtn && userLoginBtn) {
+        // Show admin login form when admin login button is clicked
         adminLoginBtn.addEventListener('click', () => {
             document.getElementById('login-options').style.display = 'none';
             document.getElementById('admin-login-form').style.display = 'block';
         });
 
+        // Show user login form when user login button is clicked
         userLoginBtn.addEventListener('click', () => {
             document.getElementById('login-options').style.display = 'none';
             document.getElementById('user-login-form').style.display = 'block';
@@ -33,12 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         adminLoginForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
 
+            // Simple admin login logic (client-side check)
             if (username === 'admin' && password === 'admin') {
                 alert('Admin login successful!');
-                window.location.href = 'dashboard.html';
+                window.location.href = 'dashboard.html';  // Redirect to admin dashboard
             } else {
                 alert('Invalid admin credentials.');
             }
@@ -47,75 +50,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // User login functionality
     const userLoginForm = document.getElementById('user-login-form');
-if (userLoginForm) {
-    userLoginForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    if (userLoginForm) {
+        userLoginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        const username = document.getElementById('user-username').value;
-        const password = document.getElementById('user-password').value;
+            const username = document.getElementById('user-username').value;
+            const password = document.getElementById('user-password').value;
 
-        try {
-            const response = await fetch('http://localhost:3000/login', { // Ensure correct URL and port
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            });
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (response.ok) {
-                alert('User login successful!');
-                localStorage.setItem('userName', data.username); // Store username for greeting
-                window.location.href = 'index.html';  // Redirect to user home page
-            } else {
-                alert('Invalid username or password.');
+                if (response.ok) {
+                    alert('User login successful!');
+                    localStorage.setItem('userName', data.username); // Store username for greeting
+                    window.location.href = 'index.html';  // Redirect to user home page
+                } else {
+                    alert('Invalid username or password.');
+                }
+            } catch (error) {
+                console.error('Error logging in:', error);
+                alert('An error occurred during login.');
             }
-        } catch (error) {
-            console.error('Error logging in:', error);
-            alert('An error occurred during login.');
-        }
-    });
-}
-
+        });
+    }
 
     // User registration functionality
     const userRegisterForm = document.getElementById('user-register-form');
-if (userRegisterForm) {
-    userRegisterForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    if (userRegisterForm) {
+        userRegisterForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        const newUsername = document.getElementById('register-username').value;
-        const newEmail = document.getElementById('register-email').value;
-        const newPassword = document.getElementById('register-password').value;
+            const newUsername = document.getElementById('register-username').value;
+            const newEmail = document.getElementById('register-email').value;
+            const newPassword = document.getElementById('register-password').value;
 
-        try {
-            const response = await fetch('http://localhost:3000/register', { // Ensure correct URL and port
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    uname: newUsername,
-                    email: newEmail,
-                    u_password: newPassword
-                })
-            });
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        uname: newUsername,
+                        email: newEmail,
+                        u_password: newPassword
+                    })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (response.ok) {
-                alert(data.message);
-                userRegisterForm.style.display = 'none';
-                document.getElementById('user-login-form').style.display = 'block';
-            } else {
-                alert(data.message || 'Registration failed.');
+                if (response.ok) {
+                    alert(data.message);  // Show registration success message
+                    userRegisterForm.style.display = 'none';  // Hide registration form
+                    document.getElementById('user-login-form').style.display = 'block';  // Show login form
+                } else {
+                    alert(data.message || 'Registration failed.');
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred during registration.');
             }
-        } catch (error) {
-            console.error('Error during registration:', error);
-            alert('An error occurred during registration.');
-        }
-    });
-}
+        });
+    }
 });
