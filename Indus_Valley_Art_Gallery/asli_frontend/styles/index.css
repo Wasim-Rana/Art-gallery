@@ -6,8 +6,8 @@
 
 body {
     width: 100%;
-    /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/about_background.jpg') no-repeat center center/cover ; */
-    background-color: antiquewhite;
+    background: url('../1720390-uhd_3840_2160_25fps.mp4') no-repeat center center/cover ;
+    /* background-color: antiquewhite; */
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
