@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const uname = localStorage.getItem('userName');
     const ublock = document.getElementById('uname');
 
+    ublock.innerHTML=`<p>Hello ${uname}</p>`
+
     let picon= document.getElementById('profile-icon');
     let pblock=document.getElementById('profile-details')
     

@@ -85,12 +85,14 @@ i:hover{
 #profile-details {
     height: 200px;
     width: 200px;
-    background-color: rgb(71, 71, 71);
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    background-color: rgb(52, 51, 51 , 0.8);
+    box-shadow: 0px 0px 10px rgba(41, 39, 39, 0.5);
     display: none;
     position: absolute;
     right: 0;
     top: 0;
+    margin: 3% 0.1% 0 0;
+    border-radius: 3;
 }
 
 /* Show profile details on hover of the container */
@@ -109,19 +111,70 @@ i:hover{
 
 #profile-details>div>p {
     font-size: 20px;
+    color: #fff;
+}
+#profile-details>div>p:hover{
+    scale : 1.1;
+    transition: all 0.3s ease-out;
 }
 
-#profile-details>div>button {
-    width: 60%;
-    height: 35%;
-    background-color: rgb(69, 69, 69);
-    border: none;
+button {
+    --color: #00A97F;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
     font-weight: 400;
-    font-size: 15px;
-    border-radius: 5px;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
 }
+
+button::before, .button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+   }
+   
+   button::before {
+    top: -1em;
+    left: -1em;
+   }
+   
+   button:after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+   }
+   
+   button:hover::before, button:hover::after {
+    height: 410px;
+    width: 410px;
+   }
+   
+   button:hover {
+    color: rgb(10, 25, 30);
+   }
+   
+   button:active {
+    filter: brightness(.8);
+   }
+   
 
 #profile-details>p {
+    color: #fff;
     font-size: 20px;
     font-weight: 800;
     position: absolute;
