@@ -10,12 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const uname = localStorage.getItem('userName');
+    let picon= document.getElementById('profile-icon');
+    let pblock=document.getElementById('profile-details')
+
+    if(uname){
     const ublock = document.getElementById('uname');
 
     ublock.innerHTML=`<p>Hello ${uname}</p>`
 
-    let picon= document.getElementById('profile-icon');
-    let pblock=document.getElementById('profile-details')
+    
     
     picon.addEventListener('click' ,() =>{
 
@@ -34,4 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
             location.href = './login.html';  // Redirect to login page
         });
     }
+}
+else{
+    picon.addEventListener('click', () => {
+        location.href = './login.html'; // Redirect to login page
+    });
+}
 });

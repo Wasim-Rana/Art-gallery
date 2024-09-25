@@ -36,10 +36,9 @@
              </a>
 
                 <section id="navigations">                   
-                        <a href="">About us</a>
-                        <a href=""></a>
+                        <a href="#about">About us</a>
+                        <a href="#contact">Contact Us</a>
                         <a href="products.html">Arts</a>
-                        <a href=""></a>
                         <a href="">Profile</a>
 
                 </section>
@@ -57,6 +56,111 @@
             </div>
         </div>
     </div>
+    <section class="product-info">
+        <div class="hex-grid">
+            <div class="hex-row">
+                <div class="hex"><img src="../asli_frontend/images/drawing/drawing1.jpg" alt="Art Image 1"></div>
+                <div class="hex"><img src="../asli_frontend/images/paintings/painting2.jpg" alt="Art Image 2"></div>
+                <div class="hex"><img src="../asli_frontend/images/impression/impression3.jpg" alt="Art Image 3"></div>
+            </div>
+            <div class="hex-row offset">
+                <div class="hex"><img src="../asli_frontend/images/drawing/drawing3.jpg" alt="Art Image 4"></div>
+                <div class="hex"><img src="../asli_frontend/images/photograpy/photo5.jpg" alt="Art Image 5"></div>
+                <div class="hex"><img src="../asli_frontend/images/sculpture/sculpture2.jpg" alt="Art Image 6"></div>
+            </div>
+        </div>
+        <div class="product-para">
+            <p>Explore our exclusive collection of photography, impressions, sculptures, paintings, and drawings. Each piece reflects the passion and creativity of our artists, offering a unique visual experience for art lovers.</p>
+        </div>
+    </section>
+    
+    
+    
+        <section class="card-container">
+            <div class="card" onclick="window.location.href='products.html'">
+                <div class="card-image">
+                    <img src="../asli_frontend/images/photograpy/photo4.jpg" alt="Photography">
+                </div>
+                <div class="card-overlay">
+                    <h3>Photography</h3>
+                    <p>Capture the essence of life through the lens.</p>
+                </div>
+            </div>
+            <div class="card" onclick="window.location.href='products.html'">
+                <div class="card-image">
+                    <img src="../asli_frontend/images/impression/impression4.jpg" alt="Impression">
+                </div>
+                <div class="card-overlay">
+                    <h3>Impression</h3>
+                    <p>Explore the world of impressionistic art.</p>
+                </div>
+            </div>
+            <div class="card" onclick="window.location.href='products.html'">
+                <div class="card-image">
+                    <img src="../asli_frontend/images/sculpture/sculpture4.jpg" alt="Sculptures">
+                </div>
+                <div class="card-overlay">
+                    <h3>Sculptures</h3>
+                    <p>Marvel at the beauty of three-dimensional art.</p>
+                </div>
+            </div>
+            <div class="card" onclick="window.location.href='products.html'">
+                <div class="card-image">
+                    <img src="../asli_frontend/images/paintings/painting4.jpg" alt="Painting">
+                </div>
+                <div class="card-overlay">
+                    <h3>Painting</h3>
+                    <p>Delve into the world of colors and brushstrokes.</p>
+                </div>
+            </div>
+            <div class="card" onclick="window.location.href='products.html'">
+                <div class="card-image">
+                    <img src="../asli_frontend/images/drawing/drawing3.jpg" alt="Drawing">
+                </div>
+                <div class="card-overlay">
+                    <h3>Drawing</h3>
+                    <p>Experience the beauty of hand-drawn art.</p>
+                </div>
+            </div>
+    
+        </section>
+
+        <div class="view-more-container">
+            <button class="view-more" onclick="window.location.href='products.html'">View More</button>
+        </div>
+        
+    
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our journey, our passion for art, and how we bring creativity to life through carefully curated exhibitions and art pieces.</p>
+        </section>
+    
+       <!-- Contact Us Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form" action="submit-form.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message/Question:</label>
+                    <textarea id="message" name="message" placeholder="Your Message or Question" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </section>
+
+
+    
 
     <footer>
         <section class="footer-main">

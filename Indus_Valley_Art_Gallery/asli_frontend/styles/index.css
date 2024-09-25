@@ -6,8 +6,8 @@
 
 body {
     width: 100%;
-    /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/about_background.jpg') no-repeat center center/cover ; */
-    background-color: antiquewhite;
+    background: url('../styles/pexels-brakou-1723637.jpg') no-repeat center center/cover ;
+    backdrop-filter: blur(100%);
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
@@ -257,6 +257,7 @@ span {
 }
 
 .main-container {
+    background-color: rgba(241, 241, 241, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -307,7 +308,8 @@ span {
     border: 1px solid;
     font-family: inherit;
     text-transform: uppercase;
-    color: var(--color);
+    /* color: var(--color); */
+    color: #111;
     z-index: 1;
    }
    
@@ -347,7 +349,301 @@ span {
     filter: brightness(.8);
    }
    
+   .product-info{
+    min-height: 80vh;
+    background-color: #404040 0.4;
+    display: flex;
+    align-items: center;
+    text-align: center;
+   }
 
+
+   .hex-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hex-row {
+    display: flex;
+    justify-content: center;
+}
+
+.hex-row.offset {
+    margin-left: 75px;
+}
+
+.hex {
+    width: 230px;
+    height: 250px;
+    position: relative;
+    margin: 5px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.hex img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hex:hover img {
+    transform: scale(1.1);
+}
+
+.product-para {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+@media (max-width: 768px) {
+    .hex-row.offset {
+        margin-left: 40px;
+    }
+
+    .hex {
+        width: 100px;
+        height: 115px;
+    }
+
+    .product-para {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hex-row.offset {
+        margin-left: 20px;
+    }
+
+    .hex {
+        width: 80px;
+        height: 90px;
+    }
+
+    .product-para {
+        font-size: 14px;
+    }
+}
+
+
+/* Card Container */
+.card-container {
+    background-color: rgba(241, 241, 241, 0.5);
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 5% 0 -5% 0;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.card {
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    height: 300px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-image img {
+    opacity: 0.8;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-overlay h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.card-overlay p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.view-more {
+    margin-bottom: 10%;
+    padding: 10px 20px;
+    background-color: #00A97F;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-more:hover {
+    background-color: #008a5f;
+}
+
+@media (max-width: 768px) {
+    .card {
+        height: 250px;
+    }
+
+    .card-overlay h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-overlay p {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+#about {
+    min-height: 70vh;
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+#contact {
+    padding: 60px 20px;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #00A97F;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #00A97F;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #008a5f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .content-intro h1 {
+        font-size: 28px;
+    }
+    .content-intro p {
+        font-size: 16px;
+    }
+    .read-more {
+        font-size: 14px;
+    }
+}
 
 footer {
     background-color: #111;
