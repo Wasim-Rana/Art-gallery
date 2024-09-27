@@ -5,28 +5,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerEmailInput = document.getElementById('customer-email');
     const customerAddressInput = document.getElementById('customer-address');
     const customerNumberInput = document.getElementById('customer-number');
+    const cartMessageContainer = document.getElementById('cart-message-container');
+    const form = document.querySelector('form');
     
     function displayCartItems() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cartItemsContainer.innerHTML = '';
         
-        cart.forEach((item, index) => {
-            const cartItemElement = document.createElement('div');
-            cartItemElement.classList.add('cart-item');
-            cartItemElement.innerHTML = `
-                <img src="${item.imgSrc}" alt="${item.title}">
-                <div class="cart-item-details">
-                    <h3>${item.title}</h3>
-                    <p>Price: $${item.price}</p>
-                </div>
-                <button onclick="removeFromCart(${index})">Remove</button>
-            `;
-            cartItemsContainer.appendChild(cartItemElement);
-        });
+        if (cart.length === 0) {
         
-        checkoutButton.disabled = cart.length === 0;
+            form.style.display = 'none';
+            cartMessageContainer.innerHTML = `
+                <div class="empty-cart-message">
+                    <h2>Your cart is empty</h2>
+                    <p>Add items to your cart to proceed to checkout.</p>
+                    <button id="shop-now-btn">Shop Now</button>
+                </div>
+            `;
+
+            
+            document.getElementById('shop-now-btn').addEventListener('click', () => {
+                window.location.href = 'products.html';
+            });
+        } else {
+            
+            form.style.display = 'block';
+            cartMessageContainer.innerHTML = ''; 
+
+            cart.forEach((item, index) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `
+                    <img src="${item.imgSrc}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <h3>${item.title}</h3>
+                        <p>Price: $${item.price}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            checkoutButton.disabled = false;
+        }
     }
-    
+
+    // Call function to initialize display
     displayCartItems();
     
     checkoutButton.addEventListener('click', () => {
@@ -64,60 +88,33 @@ function removeFromCart(index) {
     displayCartItems();
 }
 
-function displayCartItems() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItemsContainer = document.getElementById('cart-items-container');
-    const checkoutButton = document.getElementById('checkout-button');
-    cartItemsContainer.innerHTML = '';
-    
-    cart.forEach((item, index) => {
-        const cartItemElement = document.createElement('div');
-        cartItemElement.classList.add('cart-item');
-        cartItemElement.innerHTML = `
-            <img src="${item.imgSrc}" alt="${item.title}">
-            <div class="cart-item-details">
-                <h3>${item.title}</h3>
-                <p>Price: $${item.price}</p>
-            </div>
-            <button onclick="removeFromCart(${index})">Remove</button>
-        `;
-        cartItemsContainer.appendChild(cartItemElement);
-    });
-    
-    checkoutButton.disabled = cart.length === 0;
-}
-
 const uname = localStorage.getItem('userName');
-let picon= document.getElementById('profile-icon');
-let pblock=document.getElementById('profile-details')
+let picon = document.getElementById('profile-icon');
+let pblock = document.getElementById('profile-details');
 
-if(uname){
-const ublock = document.getElementById('uname');
+if (uname) {
+    const ublock = document.getElementById('uname');
+    ublock.innerHTML = `<p>Hello ${uname}</p>`;
 
-ublock.innerHTML=`<p>Hello ${uname}</p>`
-
-
-
-picon.addEventListener('click' ,() =>{
-
-    pblock.style.display='block'
-})
-
-let pclose=document.getElementById('close')
-pclose.addEventListener('click',()=>{
-    pblock.style.display='none'
-})
-// Log-out button functionality
-const btn = document.getElementById('btn');
-if (btn) {
-    btn.addEventListener('click', () => {
-        localStorage.removeItem('userName');  // Remove user data
-        location.href = './login.html';  // Redirect to login page
+    picon.addEventListener('click', () => {
+        pblock.style.display = 'block';
     });
-}
-}
-else{
-picon.addEventListener('click', () => {
-    location.href = './login.html'; // Redirect to login page
-});
+
+    let pclose = document.getElementById('close');
+    pclose.addEventListener('click', () => {
+        pblock.style.display = 'none';
+    });
+
+    // Log-out button functionality
+    const btn = document.getElementById('btn');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            localStorage.removeItem('userName');  
+            location.href = './login.html';  
+        });
+    }
+} else {
+    picon.addEventListener('click', () => {
+        location.href = './login.html'; 
+    });
 }

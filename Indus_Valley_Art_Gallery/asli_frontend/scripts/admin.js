@@ -4,22 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const userLoginBtn = document.getElementById('user-login-btn');
 
     if (adminLoginBtn && userLoginBtn) {
-        // Show admin login form when admin login button is clicked
+        
         adminLoginBtn.addEventListener('click', () => {
             document.getElementById('login-options').style.display = 'none';
             document.getElementById('admin-login-form').style.display = 'block';
         });
 
-        // Show user login form when user login button is clicked
+        
         userLoginBtn.addEventListener('click', () => {
             document.getElementById('login-options').style.display = 'none';
             document.getElementById('user-login-form').style.display = 'block';
-            // Show registration toggle link
+           
             document.getElementById('toggle-register-login').style.display = 'block';
         });
     }
 
-    // Toggle between login and registration forms for users
+    
     const toggleRegisterLogin = document.getElementById('toggle-register-login');
     if (toggleRegisterLogin) {
         toggleRegisterLogin.addEventListener('click', (event) => {
@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const username = document.getElementById('admin-username').value;
             const password = document.getElementById('admin-password').value;
 
-            // Simple admin login logic (client-side check)
+            
             if (username === 'admin' && password === 'admin') {
                 alert('Admin login successful!');
-                window.location.href = 'dashboard.html';  // Redirect to admin dashboard
+                window.location.href = 'dashboard.html';  
             } else {
                 alert('Invalid admin credentials.');
             }
