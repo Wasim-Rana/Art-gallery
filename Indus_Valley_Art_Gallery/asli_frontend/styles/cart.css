@@ -7,7 +7,7 @@
 body {
     width: 100%;
     /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover; */
-    background-color: antiquewhite;
+    background-color: #f4f4f9;
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
@@ -32,7 +32,7 @@ a {
     color: inherit;
 }
 header {
-    background-color: rgba(241, 241, 241, 0.7);
+    background-color: rgba(241, 241, 241, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,6 +67,7 @@ nav {
     align-items: center;
     margin-right: 20px;
 }
+
 i{
     margin-left: 15px;
 }
@@ -79,7 +80,7 @@ i:hover{
     position: fixed;
     top: 12vh;
     right:0;
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(71, 71, 71 , 0.5);
     box-shadow: 0px 0px 0px 10prgb(255, 255, 255);
     z-index: 1;
     display: none;
@@ -116,13 +117,14 @@ i:hover{
 #profile-details:hover{
     cursor: pointer;
 }
+
 span {
     margin-left: 10px;
 }
 
 #nav2 {
     height: auto;
-    background-color: rgb(142, 141, 141);
+    background-color: rgb(142, 141, 141, 0.5);
     color: white;
     text-align: center;
     padding: 10px ;
@@ -192,17 +194,59 @@ span {
     padding: 20px;
 }
 
-#cart-items-container {
+/* Styling for the empty cart message */
+.empty-cart-message {
+    text-align: center;
+    margin: 50px 0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.empty-cart-message h2 {
+    font-size: 2rem;
+    color: #ff5252;
+    margin-bottom: 10px;
+}
+
+.empty-cart-message p {
+    font-size: 1.2rem;
+    color: #666;
     margin-bottom: 20px;
+}
+
+#shop-now-btn {
+    padding: 12px 30px;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#shop-now-btn:hover {
+    background-color: #0056b3; 
+    transform: translateY(-3px);
+}
+
+#shop-now-btn:active {
+    background-color: #004080; 
+    transform: translateY(0);
+}
+
+#cart-items-container {
+    margin-bottom: 50px;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #ddd;
+    border: 1px solid #815454;
     padding: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .cart-item img {
@@ -210,6 +254,10 @@ span {
     height: auto;
 }
 
+.cart-item > img:hover {
+    transition: all 0.5s ease-in-out;
+    scale: 0.9;
+}
 .cart-item-details {
     flex-grow: 1;
     margin-left: 10px;
@@ -226,22 +274,152 @@ span {
 }
 
 .cart-item button {
-    padding: 5px 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
+    width: 100px;
+    height: 2rem;
+    transition: all 0.5s ease;
+    border-radius: 4px;
+    background-color: transparent;
     cursor: pointer;
+    font-weight: 600;
 }
 
-#checkout-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+.cart-item > button:hover{
+    color: rgb(60, 115, 163);
+    scale: 0.9;
+
+}
+.cart-item button:active{
+    scale: 1.1;
+}
+
+form {
+    position: relative;
+    min-height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    border: 1px solid #ccc;
+    padding: 25px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 50px auto;
+  }
+  
+  .form-group {
+    position: relative;
+    width: 100%;
+  }
+  
+  
+  .input {
+    width: 100%;
+    border: solid 1.5px #ddd;
+    border-radius: 0.75rem;
+    background: #fafafa; 
+    padding: 1rem;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .user-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    color: #999;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .input:focus,
+  .input:hover {
+    outline: none;
+    border-color: #5e81f4; 
+    box-shadow: 0 0 8px rgba(94, 129, 244, 0.5); 
+  }
+  
+  .input:focus ~ .user-label, 
+  .input:not(:placeholder-shown) ~ .user-label {
+    top: 0;
+    transform: translateY(-50%) scale(0.85);
+    background-color: #fff;
+    padding: 0 5px;
+    color: #5e81f4;
+  }
+  
+  .input:hover {
+    border-color: #5e81f4;
+  }
+  
+  form .form-group:hover .user-label {
+    color: #5e81f4;
+  } 
+  .payment-options {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .payment-options p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .payment-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .payment-btn {
+    background: none;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .payment-btn img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .payment-btn:hover {
+    transform: scale(1.1); /* Slight grow effect on hover */
+  }
+  
+  
+  #checkout-button {
+    padding: 12px 24px;
+    background-color: #5e81f4; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
     display: block;
-    margin: 0 auto;
-}
+    margin: 10% auto;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect */
+  #checkout-button:hover {
+    background-color: #4a6cd9;
+    transform: scale(1.05); 
+    box-shadow: 0 4px 10px rgba(94, 129, 244, 0.4);
+  }
+  
+  #checkout-button:disabled {
+    background-color: #ccc; 
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
 
 footer {
     

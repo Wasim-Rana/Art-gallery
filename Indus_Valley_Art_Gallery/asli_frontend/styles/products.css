@@ -6,11 +6,12 @@
 
 body {
     width: 100%;
-    /* background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/homepage_background2.jpg') no-repeat center center/cover; */
-    background-color: antiquewhite;
+    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/pexels-steve-1269968.jpg') no-repeat center center/cover ;
+    /* background-color: rgb(204, 204, 204); */
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
+
 }
 
 body::-webkit-scrollbar {
@@ -32,7 +33,7 @@ a {
     color: inherit;
 }
 header {
-    background-color: rgba(241, 241, 241, 0.7);
+    background-color: rgba(241, 241, 241, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +81,7 @@ i:hover{
     position: fixed;
     top: 12vh;
     right:0;
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(71, 71, 71 , 0.5);
     box-shadow: 0px 0px 0px 10prgb(255, 255, 255);
     z-index: 1;
     display: none;
@@ -124,7 +125,7 @@ span {
 
 #nav2 {
     height: auto;
-    background-color: rgb(142, 141, 141);
+    background-color: rgb(142, 141, 141, 0.5);
     color: white;
     text-align: center;
     padding: 10px ;
@@ -204,27 +205,37 @@ span {
 }
 
 .products-container {
+    width: 100%;
+    background-color: rgb(103, 104, 107, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding : 10px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
 }
 
+.products-container:hover{
+    backdrop-filter: blur(10px);
+}
 .product-item {
-    border: 1px solid #ddd;
+    border: 1px solid #e88080;
     padding: 10px;
     margin: 10px;
     width: 200px;
     text-align: center;
     transition: all 0.3s ease;
+    border-radius: 10px;
 }
 
 .product-item:hover{
     scale:1.05;
+    box-shadow: 0 0 35px #2b2d2f;
 
 }
 .product-item img {
     width: 100%;
-    height: auto;
+    max-height: 250px;
 }
 
 .product-item h3 {
@@ -237,14 +248,18 @@ span {
     margin: 10px 0;
 }
 
-.product-item button {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+.product-item > button {
+    width: 100px;
+    height: 2rem;
+    transition: all 0.5s ease;
+    border-radius: 4px;
+    background-color: transparent;
 }
 
+.product-item > button:hover {
+    color: aliceblue;
+    scale: 1.1;
+}
 footer {
     background-color: #111;
     color: #fff;
