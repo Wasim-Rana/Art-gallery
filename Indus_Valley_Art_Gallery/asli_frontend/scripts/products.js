@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const productsContainer = document.querySelector('.products-container');
-    const filterSelect = document.querySelector('#art-type-filter');
+
+    const categoryList = document.querySelectorAll('.category-list li');
 
     function displayProducts(filteredProducts) {
         productsContainer.innerHTML = '';
@@ -42,12 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             productsContainer.appendChild(productElement);
         });
     }
-
-    filterSelect.addEventListener('change', (event) => {
-        const selectedType = event.target.value;
+    
+    categoryList.forEach(category => {
+    category.addEventListener('click', (event) => {
+        const selectedType = category.getAttribute('data-filter'); //event.target.value;
         const filteredProducts = selectedType === 'all' ? products : products.filter(product => product.type === selectedType);
         displayProducts(filteredProducts);
     });
+})
 
     // Trigger the fetch function on page load
     fetchData();

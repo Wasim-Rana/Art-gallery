@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/pexels-steve-1269968.jpg') no-repeat center center/cover ;
+    background: url('/Indus_Valley_Art_Gallery/asli_frontend/styles/about_background.jpg') no-repeat center center/cover ;
     /* background-color: rgb(204, 204, 204); */
     overflow-x: hidden;
     overflow-y: auto;
@@ -33,11 +33,12 @@ a {
     color: inherit;
 }
 header {
-    background-color: rgba(241, 241, 241, 0.5);
+    background-color: rgba(68, 67, 67, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: white;
 }
 
 nav {
@@ -190,23 +191,57 @@ span {
 }
 
 .main-container {
-    
+    display: flex;
     padding: 20px;
+    gap: 1rem;
 }
 
-.filter-section {
-    margin-bottom: 20px;
-    text-align: center;
+.filter-panel {
+    min-width: 250px;
+    max-height: 80vh;
+    padding: 20px;
+    background-color: rgb(142, 141, 141 , 0.8);
+    border-radius: 10px;
+    /* backdrop-filter: blur(10px); */
+    
 }
 
-.filter-section select {
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+.category-list li {
     padding: 10px;
-    font-size: 16px;
+    margin: 5px 0;
+    cursor: pointer;
+    background-color: #4d4d4d;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.category-list li:hover {
+    transition: all 0.5s ease-out;
+    background-color: #ccc;
+    scale: 1.09;
 }
 
 .products-container {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-height: 80vh;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+
+.products-container {
     width: 100%;
-    background-color: rgb(103, 104, 107, 0.5);
+    background-color: rgb(103, 104, 107, 0.7);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -218,6 +253,20 @@ span {
 .products-container:hover{
     backdrop-filter: blur(10px);
 }
+.products-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.products-container::-webkit-scrollbar-thumb {
+    background-color: #404040;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.products-container::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
 .product-item {
     border: 1px solid #e88080;
     padding: 10px;
