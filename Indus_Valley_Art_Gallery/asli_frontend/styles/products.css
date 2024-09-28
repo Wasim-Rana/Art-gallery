@@ -275,6 +275,7 @@ span {
     text-align: center;
     transition: all 0.3s ease;
     border-radius: 10px;
+    background-color: rgb(71, 71, 71 , 0.9);
 }
 
 .product-item:hover{
