@@ -45,17 +45,18 @@
     </header>
 
     <div class="main-container">
-        <div class="filter-section">
-            <select id="art-type-filter">
-                <option value="all">All</option>
-                <option value="Sculpture">Sculpture</option>
-                <option value="Painting">Painting</option>
-                <option value="Photography">Photography</option>
-                <option value="Impression">Impression</option>
-                <option value="Drawing">Drawing</option>
-                
-            </select>
+        <div class="filter-panel">
+            <h3>Art Categories</h3>
+            <ul class="category-list">
+                <li data-filter="all">All</li>
+                <li data-filter="Sculpture">Sculpture</li>
+                <li data-filter="Painting">Painting</li>
+                <li data-filter="Photography">Photography</li>
+                <li data-filter="Impression">Impression</li>
+                <li data-filter="Drawing">Drawing</li>
+            </ul>
         </div>
+        
         <div class="products-container" id="products-container">
             <!-- Populate products dynamically -->
         </div>
