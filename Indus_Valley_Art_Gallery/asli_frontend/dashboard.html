@@ -17,23 +17,45 @@
         </nav>
     </header>
 
-    <div class="main-container">
-        <h1>Dashboard</h1>
-        <div id="orders-container">
-            <!-- Orders will be dynamically populated here -->
+    <div class="admin-dashboard">
+        <div class="side-panel">
+            <h3>Admin Options</h3>
+            <ul>
+                <li><a href="#orders-container" id="view-orders">View Orders</a></li>
+                <li><a href="#products-container" id="manage-products">Manage Products</a></li>
+                <li><a href="#users-container" id="logged-in-users">View Logged-in Users</a></li>
+                <li><a href="#contact-container" id="contact-submissions">Contact Submissions</a></li>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
         </div>
-        <h2>Logged-in Users</h2>
-        <div id="users-container">
-            <!-- Logged-in users will be displayed here -->
-        </div>
+        <div class="main-container">
+            <h1>Dashboard</h1>
+            
+            <!-- Orders Section -->
+            <div id="orders-container" class="content-section">
+                <h2>Orders</h2>
+                <!-- Orders will be dynamically populated here -->
+            </div>
+            
+            <!-- Products Management Section -->
+            <div id="products-container" class="content-section">
+                <h2>Manage Products</h2>
+                <!-- Product management functionality will go here -->
+            </div>
+            
+            <!-- Logged-in Users Section -->
+            <div id="users-container" class="content-section">
+                <h2>Logged-in Users</h2>
+                <!-- Logged-in users will be displayed here -->
+            </div>
 
-             <h2>Purchases</h2>
-        <div id="purchases-container">
-            <!-- Purchases will be dynamically populated here -->
+            <!-- Contact Submissions Section -->
+            <div id="contact-container" class="content-section">
+                <h2>Contact Submissions</h2>
+                <!-- Contact form submissions will be displayed here -->
+            </div>
         </div>
-        
-            <button id="logout-button">Logout</button>
-        </div>
+    </div>
 
     <script src="scripts/dashboard.js"></script>
 </body>
