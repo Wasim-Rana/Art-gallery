@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItemsContainer.innerHTML = '';
         
         if (cart.length === 0) {
-        
+            // Hide form and show empty cart message
             form.style.display = 'none';
             cartMessageContainer.innerHTML = `
                 <div class="empty-cart-message">
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            
+            // Add event listener to redirect to product page
             document.getElementById('shop-now-btn').addEventListener('click', () => {
                 window.location.href = 'products.html';
             });
         } else {
-            
+            // Show form and list cart items
             form.style.display = 'block';
-            cartMessageContainer.innerHTML = ''; 
+            cartMessageContainer.innerHTML = ''; // Hide empty message
 
             cart.forEach((item, index) => {
                 const cartItemElement = document.createElement('div');
@@ -89,32 +89,36 @@ function removeFromCart(index) {
 }
 
 const uname = localStorage.getItem('userName');
-let picon = document.getElementById('profile-icon');
-let pblock = document.getElementById('profile-details');
+let picon= document.getElementById('profile-icon');
+let pblock=document.getElementById('profile-details')
 
-if (uname) {
-    const ublock = document.getElementById('uname');
-    ublock.innerHTML = `<p>Hello ${uname}</p>`;
+if(uname){
+const ublock = document.getElementById('uname');
 
-    picon.addEventListener('click', () => {
-        pblock.style.display = 'block';
+ublock.innerHTML=`<p>Hello ${uname}</p>`
+
+
+
+picon.addEventListener('click' ,() =>{
+
+    pblock.style.display='block'
+})
+
+let pclose=document.getElementById('close')
+pclose.addEventListener('click',()=>{
+    pblock.style.display='none'
+})
+// Log-out button functionality
+const btn = document.getElementById('btn');
+if (btn) {
+    btn.addEventListener('click', () => {
+        localStorage.removeItem('userName');  // Remove user data
+        location.href = './login.html';  // Redirect to login page
     });
-
-    let pclose = document.getElementById('close');
-    pclose.addEventListener('click', () => {
-        pblock.style.display = 'none';
-    });
-
-    // Log-out button functionality
-    const btn = document.getElementById('btn');
-    if (btn) {
-        btn.addEventListener('click', () => {
-            localStorage.removeItem('userName');  
-            location.href = './login.html';  
-        });
-    }
-} else {
-    picon.addEventListener('click', () => {
-        location.href = './login.html'; 
-    });
+}
+}
+else{
+picon.addEventListener('click', () => {
+    location.href = './login.html'; // Redirect to login page
+});
 }

@@ -37,41 +37,140 @@ header {
     font-weight: bold;
 }
 
-.main-container {
-    padding: 20px;
-}
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#orders-container {
-    margin-bottom: 20px;
-}
-
-.order-item {
-    border: 1px solid #ddd;
-    padding: 10px;
+h1, h2, h3 {
+    color: #333;
     margin-bottom: 10px;
 }
 
-.order-item h3 {
-    font-size: 18px;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
     margin: 0;
 }
 
-.order-item p {
+.admin-dashboard {
+    display: flex;
+    height: calc(100vh - 80px);
+    background-color: #fff;
+}
+
+.side-panel {
+    width: 250px;
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.side-panel h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.side-panel ul {
+    margin-top: 20px;
+}
+
+.side-panel ul li {
+    margin-bottom: 20px;
+}
+
+.side-panel ul li a {
     font-size: 16px;
-    margin: 5px 0;
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.side-panel ul li a:hover {
+    background-color: #4caf50;
+    border-radius: 4px;
+}
+
+.side-panel ul li button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.side-panel ul li button:hover {
+    background-color: #c0392b;
+}
+
+.main-container {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #f7f7f7;
+    transition: margin-left 0.3s ease;
+    overflow-y: auto;
+}
+
+.main-container h1 {
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.content-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.content-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.order-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#products-container {
+    min-height: 200px;
+}
+
+#users-container, #contact-container {
+    min-height: 150px;
 }
 
 #logout-button {
+    font-size: 18px;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #e74c3c;
     color: #fff;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #c0392b;
 }

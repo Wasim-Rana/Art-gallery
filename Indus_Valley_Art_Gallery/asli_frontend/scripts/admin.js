@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         adminLoginForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            const username = document.getElementById('admin-username').value;
-            const password = document.getElementById('admin-password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
             
             if (username === 'admin' && password === 'admin') {
                 alert('Admin login successful!');
-                window.location.href = 'dashboard.html';  
+                window.location.href = 'dashboard.html';  // Redirect to admin dashboard
             } else {
                 alert('Invalid admin credentials.');
             }
