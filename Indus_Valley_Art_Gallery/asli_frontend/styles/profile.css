@@ -6,7 +6,8 @@
 
 body {
     width: 100%;
-    background: url('../styles/pexels-brakou-1723637.jpg') no-repeat center center/cover ;
+    /* background: url('../styles/pexels-brakou-1723637.jpg') no-repeat center center/cover ; */
+    background-color: azure;
     backdrop-filter: blur(100%);
     overflow-x: hidden;
     overflow-y: auto;
@@ -145,6 +146,87 @@ span {
     }
 }
 
+.profile-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    max-width: 80vw;
+    width: 100%;
+    margin: 10% ;
+  }
+  
+  .profile-picture {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-picture i {
+    font-size: 150px;
+    color: #ccc;
+  }
+  
+  .profile-form {
+    flex: 2;
+    padding-left: 30px;
+  }
+  
+  .profile-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-form label {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    width: 250px;
+    margin-right: 20px;
+  }
+  
+  .profile-form input,
+  .profile-form select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+  }
+  
+  .profile-form input:focus,
+  .profile-form select:focus {
+    border-bottom-color: #28a745;
+  }
+  
+  .profile-form .form-group i {
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  .profile-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .profile-form button:hover {
+    background-color: #218838;
+  }
 footer {
     background-color: #111;
     color: #fff;
