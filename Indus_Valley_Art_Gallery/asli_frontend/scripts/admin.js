@@ -26,9 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             document.getElementById('user-login-form').style.display = 'none';
             document.getElementById('user-register-form').style.display = 'block';
+
+            document.getElementById('toggle-user-login').style.display = 'block';
+
         });
     }
+    
+    const toggleUserLogin = document.getElementById('toggle-user-login');
+    if(toggleUserLogin){
+        toggleUserLogin.addEventListener('click', (event) => {
 
+            event.preventDefault();
+            document.getElementById('user-register-form').style.display="none"
+            document.getElementById('user-login-form').style.display="block"
+        })
+    }
+    
     // Admin login functionality
     const adminLoginForm = document.getElementById('admin-login-form');
     if (adminLoginForm) {

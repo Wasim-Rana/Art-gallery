@@ -100,7 +100,7 @@ button:hover {
     background-color: #333;
 }
 
-#toggle-register-login {
+#toggle-register-login , #toggle-user-login {
     font-size: 16px;
     color: grey;
     margin-top: 20px;
@@ -108,9 +108,10 @@ button:hover {
     transition: color 0.3s ease;
 }
 
-#toggle-register-login:hover {
+#toggle-register-login:hover , #toggle-user-login:hover {
     color: #25bcb7;
 }
+
 
 form a {
     color: #ffc506;
