@@ -42,6 +42,62 @@
             </div>
         </nav>
     </header>
+    <div class="profile-container">
+        <!-- Profile Picture Section -->
+        <div class="profile-picture">
+          <i class="fas fa-user-circle"></i>
+        </div>
+    
+        <!-- Profile Form Section -->
+        <div class="profile-form">
+          <form id="profile-form">
+            <div class="form-group">
+                
+                <label for="profile-name"><i class="fas fa-user"></i>Full Name</label>
+                <input type="text" id="profile-name" name="profile-name"placeholder="Enter Your Name" disabled>
+            </div>
+        
+            <div class="form-group">
+                
+                <label for="profile-email"><i class="fas fa-envelope"></i>Email</label>
+                <input type="email" id="profile-email" name="profile-email" placeholder="Enter your Email" disabled>
+            </div>
+        
+    
+            <div class="form-group">
+              <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" disabled>
+            </div>
+    
+            <div class="form-group">
+              <label for="address"><i class="fas fa-map-marker-alt"></i> Address:</label>
+              <input type="text" id="address" name="address" placeholder="Enter your address" disabled>
+            </div>
+    
+            <div class="form-group">
+              <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
+              <select id="gender" name="gender" disabled>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+    
+            <div class="form-group">
+              <label for="pincode"><i class="fas fa-map-pin"></i> Pincode:</label>
+              <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" disabled>
+            </div>
+    
+            <div class="form-group">
+                <button type="button" id="edit-save-btn">Edit</button>
+            </div>
+
+          </form>
+              <div id="success-message" style="display: none; color: green;">Profile updated successfully!</div>
+
+        </div>
+      </div>
     
      <footer>
         <section class="footer-main">
@@ -91,5 +147,6 @@
         </section>
     </footer>
     
+    <script src="./scripts/profile.js"></script>
 </body>
 </html>
