@@ -13,9 +13,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`, // Assuming token is stored in localStorage
                 },
             });
-
+        
             if (response.ok) {
                 const userData = await response.json();
                 currentUserId = userData.userid; // Set the current user's ID
@@ -23,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 // Populate fields with existing user data from both 'users' and 'profile' tables
                 document.getElementById('profile-name').value = userData.name || ''; 
                 document.getElementById('profile-email').value = userData.email || '';
-
+        
                 // Populate profile-specific fields from 'profile' table
                 document.getElementById('phone').value = userData.phone || '';
                 document.getElementById('address').value = userData.address || '';
@@ -35,6 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
+        
     }
 
     // Load the user data on page load
@@ -74,11 +76,10 @@ window.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch('http://localhost:3000/api/update-profile', {
                     method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(profileData)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(profileData),
                 });
+                
     
                 if (!response.ok) {
                     throw new Error(`Failed to update profile: ${response.status}`);
