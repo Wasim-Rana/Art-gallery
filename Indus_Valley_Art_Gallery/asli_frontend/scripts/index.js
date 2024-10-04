@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(formData)
             });
-    
+            
+        
             if (response.ok) {
                 alert('Message submitted successfully!');
                 contactForm.reset();
@@ -77,4 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cart.length;
+    }
+    
+    updateCartCount();
 });

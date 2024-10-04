@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const contacts = await response.json();
             contactContainer.innerHTML = '';
-    
+
             contacts.forEach(contact => {
                 const contactElement = document.createElement('div');
                 contactElement.classList.add('contact-item');
