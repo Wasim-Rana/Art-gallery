@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
  displayOrders()
 
     // Display logged-in users
-    function displayLoggedInUsers() {
-        const usersLoggedIn = JSON.parse(localStorage.getItem('usersLoggedIn')) || [];
-        usersContainer.innerHTML = '';
+    // function displayLoggedInUsers() {
+    //     const usersLoggedIn = JSON.parse(localStorage.getItem('usersLoggedIn')) || [];
+    //     usersContainer.innerHTML = '';
 
-        usersLoggedIn.forEach(user => {
-            const userElement = document.createElement('div');
-            userElement.textContent = user;
-            usersContainer.appendChild(userElement);
-        });
-    }
+    //     usersLoggedIn.forEach(user => {
+    //         const userElement = document.createElement('div');
+    //         userElement.textContent = user;
+    //         usersContainer.appendChild(userElement);
+    //     });
+    // }
 
     // Fetch and display contact submissions from the database
     async function displayContactSubmissions() {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const contacts = await response.json();
             contactContainer.innerHTML = '';
-    
+
             contacts.forEach(contact => {
                 const contactElement = document.createElement('div');
                 contactElement.classList.add('contact-item');
