@@ -13,14 +13,7 @@ require('dotenv').config();
 // Path to JSON file for arts (still using this for arts data)
 const path = './data/db.json';
 
-// MySQL connection setup
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '7881',
-    database: 'art_gallery_db',
-    port: 3306,
-});
+
 
 // Connect to MySQL
 db.connect((err) => {
@@ -35,7 +28,26 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
+const db = mysql.createConnection({
+    host: 'localhost',              // Corrected host
+    user: 'root',                   // Your MySQL username
+    password: '7881',               // Your MySQL password
+    database: 'art_gallery_db',     // Ensure this matches your database name
+    port: 3306,                     // Default MySQL port
+});
 
+// Connect to MySQL
+db.connect((err) => {
+    if (err) {
+        console.error('MySQL connection failed:');
+        console.error(`Error Code: ${err.code}`);
+        console.error(`Error Message: ${err.message}`);
+        console.error(`Error Stack: ${err.stack}`);
+        console.error('MySQL connection failed:', err.message);
+        return;
+    }
+    console.log('MySQL connected as id ' + db.threadId);
+});
 
 /* ------- User Authentication (using JWT) ------- */
 
@@ -52,6 +64,7 @@ app.post('/register', async (req, res) => {
                 console.error('Error registering user:', err);
                 return res.status(500).json({ message: 'Registration failed.', error: err });
             }
+            console.log('User registered with ID:', result.insertId);
             res.json({ message: 'User registered successfully!', userId: result.insertId });
         });
     } catch (error) {
@@ -122,7 +135,6 @@ app.get('/admin/contacts', (req, res) => {
         res.json(results);
     });
 });
-
 /* ------- Art Gallery Management (using JSON file) ------- */
 
 // List all available Arts
@@ -135,7 +147,6 @@ app.get('/arts', (req, res) => {
         res.json(JSON.parse(data));
     });
 });
-
 // Get an Art by Reference Number
 app.get('/arts/:reference', (req, res) => {
     fs.readFile(path, (err, data) => {
@@ -153,7 +164,6 @@ app.get('/arts/:reference', (req, res) => {
         }
     });
 });
-
 // Create new Art
 app.post('/arts', (req, res) => {
     fs.readFile(path, (err, data) => {
@@ -173,7 +183,6 @@ app.post('/arts', (req, res) => {
         });
     });
 });
-
 // Update Art Listing
 app.put('/arts/:reference', (req, res) => {
     fs.readFile(path, (err, data) => {
@@ -193,7 +202,6 @@ app.put('/arts/:reference', (req, res) => {
         });
     });
 });
-
 // Server setup using environment variables
 const PORT = process.env.PORT || 3000; 
 app.listen(PORT, () => {
