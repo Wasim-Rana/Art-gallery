@@ -123,8 +123,79 @@ app.get('/admin/contacts', (req, res) => {
     });
 });
 
-// Other routes for art gallery management...
+/* ------- Art Gallery Management (using JSON file) ------- */
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+// List all available Arts
+app.get('/arts', (req, res) => {
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.json(JSON.parse(data));
+    });
+});
+
+// Get an Art by Reference Number
+app.get('/arts/:reference', (req, res) => {
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        let items = JSON.parse(data);
+        const itemReference = req.params.reference;
+        const item = items.find(item => item.reference === itemReference);
+        if (item) {
+            res.json(item);
+        } else {
+            res.status(404).send('Art not found');
+        }
+    });
+});
+
+// Create new Art
+app.post('/arts', (req, res) => {
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        const items = JSON.parse(data);
+        const newItem = req.body;
+        items.push(newItem);
+        fs.writeFile(path, JSON.stringify(items, null, 2), (err) => {
+            if (err) {
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+            res.status(201).json(newItem);
+        });
+    });
+});
+
+// Update Art Listing
+app.put('/arts/:reference', (req, res) => {
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        let items = JSON.parse(data);
+        const itemReference = req.params.reference;
+        items = items.map(item => item.reference === itemReference ? req.body : item);
+        fs.writeFile(path, JSON.stringify(items, null, 2), (err) => {
+            if (err) {
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+            res.json(req.body);
+        });
+    });
+});
+
+// Server setup using environment variables
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => {
+    console.log(`Art Gallery Server running on port ${PORT}`);
 });
