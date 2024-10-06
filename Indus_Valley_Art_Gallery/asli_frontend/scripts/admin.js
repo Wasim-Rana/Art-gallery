@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('user-login-form').style.display = 'block';
            
             document.getElementById('toggle-register-login').style.display = 'block';
+            document.getElementById('toggle-admin-login').style.display='block';
         });
     }
 
@@ -41,7 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('user-login-form').style.display="block"
         })
     }
+
+    const toggleadminLogin = document.getElementById('toggle-admin-login');
+    if(toggleadminLogin){
+        toggleadminLogin.addEventListener('click', (event) => {
+
+            event.preventDefault();
+            document.getElementById('user-register-form').style.display="none"
+            document.getElementById('user-login-form').style.display="none"
+
+            document.getElementById('admin-login-form').style.display="block";
+        })
+    }
     
+
     // Admin login functionality
     const adminLoginForm = document.getElementById('admin-login-form');
     if (adminLoginForm) {

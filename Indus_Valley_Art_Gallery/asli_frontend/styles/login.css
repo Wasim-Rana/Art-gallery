@@ -15,9 +15,9 @@ body {
 }
 .login-container {
     width: auto;
-    height: 50vh;
+    height: auto;
     max-width: 500px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
@@ -33,12 +33,14 @@ body {
     box-shadow: 0 0 25px rgba(76, 175, 80, 0.9);
 }
 #login-options {
-    
+    height: 100%;
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 #admin-login-btn, #user-login-btn {
+    height: 30%;
     width: 150px;
     padding: 10px;
     border: none;
@@ -53,8 +55,6 @@ body {
 #admin-login-btn:hover, #user-login-btn:hover {
     background-color: #333;
 }
-
-
 
 h2 {
     color: #333;
@@ -100,15 +100,15 @@ button:hover {
     background-color: #333;
 }
 
-#toggle-register-login , #toggle-user-login {
+#toggle-register-login , #toggle-user-login , #toggle-admin-login {
     font-size: 16px;
-    color: grey;
+    color: rgb(3, 3, 3);
     margin-top: 20px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-#toggle-register-login:hover , #toggle-user-login:hover {
+#toggle-register-login:hover , #toggle-user-login:hover , #toggle-admin-login:hover {
     color: #25bcb7;
 }
 
