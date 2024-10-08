@@ -13,7 +13,17 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     background-attachment: fixed;
+    font-family :cursive;
+
     
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; 
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
 }
 
 body::-webkit-scrollbar {
@@ -287,7 +297,8 @@ span {
 }
 
 .content-intro h1 {
-    font-size: 36px;
+    font-family: 'Tangerine', serif;
+    font-size: 46px;
     margin-bottom: 20px;
 }
 
@@ -439,17 +450,17 @@ span {
 
 /* Card Container */
 .card-container {
-    background-color: rgba(241, 241, 241, 0.5);
-    min-height: 60vh;
+    background-color: rgba(241, 241, 241, 0.7);
+    min-height: 70vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin: 5% 0 -5% 0;
+    margin: 5% 0 0 0;
     gap: 20px;
     padding: 40px 0;
 }
 
 .card {
-
+    margin: auto;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -504,8 +515,12 @@ span {
 }
 
 .view-more-container {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .view-more {
@@ -548,14 +563,75 @@ span {
 }
 
 #about h2 {
-    font-size: 32px;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Section Subheadings */
+#about h3 {
+    font-size: 28px;
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #333; /* Left border for style */
+    padding-left: 10px;
+}
+
+/* Paragraph Text */
+#about p {
+    color: #555;
+    font-size: 16px;
     margin-bottom: 20px;
 }
 
-#about p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
+/* Styling for List (Why Choose Us section) */
+#about ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0;
+}
+
+#about ul li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+}
+
+#about ul li:before {
+    content: '\2022'; /* Custom bullet point */
+    color: #333; /* Darker bullet color */
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+    margin-left: -20px;
+    font-size: 20px;
+}
+
+/* Additional Styling for Responsive Design */
+@media (max-width: 768px) {
+    #about {
+        padding: 20px;
+    }
+
+    #about h2 {
+        font-size: 28px;
+    }
+
+    #about h3 {
+        font-size: 22px;
+    }
+
+    #about p {
+        font-size: 14px;
+    }
+
+    #about ul li {
+        font-size: 14px;
+    }
 }
 
 /* Contact Section */
