@@ -12,7 +12,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family :cursive;   
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; 
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
 .login-container {
     width: auto;
     height: auto;
