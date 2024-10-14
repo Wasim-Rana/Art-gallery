@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cartItemElement = document.createElement('div');
                 cartItemElement.classList.add('cart-item');
                 cartItemElement.innerHTML = `
-                    <img src="${item.imgSrc}" alt="${item.title}">
+                    <img src="${item.imgsrc}" alt="${item.title}">
                     <div class="cart-item-details">
                         <h3>${item.title}</h3>
                         <p>Price: $${item.price}</p>

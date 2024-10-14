@@ -4,7 +4,7 @@
     { "id": 3,  "title": "Landscape Painting",    "price": 500,  "type": "Painting",       "imgsrc":"/images/paintings/painting2.jpg"},
     { "id": 4,  "title": "Modern Sculpture",      "price": 600,  "type": "Sculpture",      "imgsrc":"/images/sculpture/sculpture2.jpg"},
     { "id": 5,  "title": "Abstract Painting" ,    "price": 400 , "type": "Painting" ,      "imgsrc":"/images/paintings/painting3.jpg"},
-    { "id": 6,  "title": "Sculpture Art" ,        "price": 700 , "type": "Sculpture" ,     "imgsrc":"/images/sculpture/sculpture3.jpg"},
+    { "id": 6,  "title": "Sculpture Art" ,        "price": 700 , "type": "Sculpture" ,     "imgsrc":"/images/sculpture/sculpture5.jpg"},
     { "id": 7,  "title": "Abstract Painting" ,    "price": 630 , "type": "Painting" ,      "imgsrc":"/images/paintings/painting4.jpg"},
     { "id": 8,  "title": "Modern Sculpture" ,     "price": 520 , "type": "Sculpture" ,     "imgsrc":"/images/sculpture/sculpture4.jpg"},
     { "id": 9,  "title": "modern impressionism" , "price": 510 , "type": "Impression" ,    "imgsrc":"/images/impression/impression1.jpg"},
