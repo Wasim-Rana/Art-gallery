@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerNumberInput = document.getElementById('customer-number');
     const cartMessageContainer = document.getElementById('cart-message-container');
     const form = document.querySelector('form');
-    
+    const paymentFormSection = document.getElementById('payment-form-section');
+
     function displayCartItems() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cartItemsContainer.innerHTML = '';
-        
+
         if (cart.length === 0) {
             // Hide form and show empty cart message
             form.style.display = 'none';
@@ -52,14 +53,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Call function to initialize display
     displayCartItems();
-    
-    checkoutButton.addEventListener('click', () => {
+
+    // Payment Method Selection
+    function clearPaymentForm() {
+        paymentFormSection.innerHTML = '';
+    }
+
+    document.getElementById('gpay-btn').addEventListener('click', () => {
+        clearPaymentForm();
+        paymentFormSection.innerHTML = `
+            <p>Google Pay</p>
+            <button id="gpay-submit-btn">Pay with Google Pay</button>
+        `;
+        document.getElementById('gpay-submit-btn').addEventListener('click', () => {
+            alert('Payment with Google Pay initiated!');
+            completeOrder();
+        });
+    });
+
+    document.getElementById('paypal-btn').addEventListener('click', () => {
+        clearPaymentForm();
+        paymentFormSection.innerHTML = `
+            <p>PayPal</p>
+            <button id="paypal-submit-btn">Pay with PayPal</button>
+        `;
+        document.getElementById('paypal-submit-btn').addEventListener('click', () => {
+            alert('Payment with PayPal initiated!');
+            completeOrder();
+        });
+    });
+
+    document.getElementById('creditcard-btn').addEventListener('click', () => {
+        clearPaymentForm();
+        paymentFormSection.innerHTML = `
+            <p>Credit Card</p>
+            <div>
+                <input type="text" id="cc-number" placeholder="Card Number" required>
+                <input type="text" id="cc-name" placeholder="Card Holder Name" required>
+                <input type="month" id="cc-expiry" placeholder="Expiry Date" required>
+                <input type="text" id="cc-cvc" placeholder="CVC" required>
+            </div>
+            <button id="cc-submit-btn">Pay with Credit Card</button>
+        `;
+        document.getElementById('cc-submit-btn').addEventListener('click', () => {
+            const ccNumber = document.getElementById('cc-number').value;
+            const ccName = document.getElementById('cc-name').value;
+            const ccExpiry = document.getElementById('cc-expiry').value;
+            const ccCVC = document.getElementById('cc-cvc').value;
+
+            if (ccNumber && ccName && ccExpiry && ccCVC) {
+                alert('Payment with Credit Card initiated!');
+                completeOrder();
+            } else {
+                alert('Please fill in all credit card fields.');
+            }
+        });
+    });
+
+    // Complete order function
+    function completeOrder() {
         const customerName = customerNameInput.value.trim();
         const customerEmail = customerEmailInput.value.trim();
         const customerAddress = customerAddressInput.value.trim();
         const customerNumber = customerNumberInput.value.trim();
-        if (customerName && customerAddress && customerEmail && customerNumber ) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        if (customerName && customerAddress && customerEmail && customerNumber) {
             const order = {
                 id: Date.now(),
                 customerName: customerName,
@@ -78,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('Please enter your details.');
         }
-    });
+    }
+
+    checkoutButton.addEventListener('click', completeOrder);
 });
 
 function removeFromCart(index) {
@@ -89,36 +150,32 @@ function removeFromCart(index) {
 }
 
 const uname = localStorage.getItem('userName');
-let picon= document.getElementById('profile-icon');
-let pblock=document.getElementById('profile-details')
+let picon = document.getElementById('profile-icon');
+let pblock = document.getElementById('profile-details');
 
-if(uname){
-const ublock = document.getElementById('uname');
+if (uname) {
+    const ublock = document.getElementById('uname');
 
-ublock.innerHTML=`<p>Hello ${uname}</p>`
+    ublock.innerHTML = `<p>Hello ${uname}</p>`
 
-
-
-picon.addEventListener('click' ,() =>{
-
-    pblock.style.display='block'
-})
-
-let pclose=document.getElementById('close')
-pclose.addEventListener('click',()=>{
-    pblock.style.display='none'
-})
-// Log-out button functionality
-const btn = document.getElementById('btn');
-if (btn) {
-    btn.addEventListener('click', () => {
-        localStorage.removeItem('userName');  // Remove user data
-        location.href = './login.html';  // Redirect to login page
+    picon.addEventListener('click', () => {
+        pblock.style.display = 'block';
     });
-}
-}
-else{
-picon.addEventListener('click', () => {
-    location.href = './login.html'; // Redirect to login page
-});
+
+    let pclose = document.getElementById('close');
+    pclose.addEventListener('click', () => {
+        pblock.style.display = 'none';
+    });
+    // Log-out button functionality
+    const btn = document.getElementById('btn');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            localStorage.removeItem('userName');  // Remove user data
+            location.href = './login.html';  // Redirect to login page
+        });
+    }
+} else {
+    picon.addEventListener('click', () => {
+        location.href = './login.html'; // Redirect to login page
+    });
 }
