@@ -11,14 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const orderElement = document.createElement('div');
             orderElement.classList.add('order-item');
             orderElement.innerHTML = `
-                <h3>Order ID: ${order.id}</h3>
+                <p>Order ID: ${order.id}</p>
                 <p>Customer: ${order.customerName}</p>
+                <p>Email: ${order.customerEmail}</p>
+                <p>Address: ${order.customerAddress}</p>
+                <p>Phone: ${order.customerNumber}</p>
                 <p>Total: $${order.total}</p>
                 <p>Date: ${order.date}</p>
+                <p>Payment Method: ${order.paymentMethod}</p>
+                <button class="delete-order-btn" data-index="${order.index}">Delete Order</button>
+
             `;
             ordersContainer.appendChild(orderElement);
+
+            orderElement.querySelector('.delete-order-btn').addEventListener('click', (e) => {
+                const orderIndex = e.target.getAttribute('data-index');
+                deleteOrder(orderIndex);
+            });
         });
     }
+    function deleteOrder(index) {
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        orders.splice(index, 1); // Remove the order at the specified index
+        localStorage.setItem('orders', JSON.stringify(orders)); // Update localStorage
+        displayOrders(); // Refresh the display
+    }
+    
  displayOrders()
 
     // Display logged-in users
@@ -70,4 +88,3 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
     });
 });
-

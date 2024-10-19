@@ -613,7 +613,6 @@ span {
     color: #f8b500;
 }
 
-/* Responsive Design Adjustments */
 @media (max-width: 768px) {
     #about {
         padding: 40px 15px;
@@ -632,7 +631,6 @@ span {
     }
 }
 
-/* Add animation for fading and appearing */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -705,7 +703,6 @@ span {
 }
 
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .contact-form {
         padding: 20px;
@@ -717,7 +714,6 @@ span {
 }
 
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .content-intro h1 {
         font-size: 28px;
@@ -826,7 +822,6 @@ footer {
     color: #ff6347;
 }
 
-/* Media Queries */
 @media (max-width: 1200px) {
     .footer-brand h1 {
         font-size: 1.8em;

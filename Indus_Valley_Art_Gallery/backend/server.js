@@ -35,10 +35,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
-
-
-/* ------- User Authentication (using JWT) ------- */
-
 // User Registration with Password Hashing
 app.post('/register', async (req, res) => {
     const { uname, email, u_password } = req.body;
