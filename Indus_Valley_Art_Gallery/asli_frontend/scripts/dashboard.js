@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Phone: ${order.customerNumber}</p>
                 <p>Total: $${order.total}</p>
                 <p>Date: ${order.date}</p>
-                <p>Payment Method: ${order.paymentMethod}</p>
+                <p>Payment Method: ${order.selectedpaymentMethod}</p>
                 <button class="delete-order-btn" data-index="${order.index}">Delete Order</button>
 
             `;
