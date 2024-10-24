@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchData = async () => {
         try {
             // Fetch the JSON data from the API endpoint
-            const response = await fetch('https://art-gallery-w1s7.onrender.com/arts');
+            const response = await fetch('../backend/data/db.json');
 
             // Check if the request was successful
             if (!response.ok) {
