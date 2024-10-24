@@ -16,7 +16,7 @@
     { "id": 15, "title": "modern impressionism" , "price": 610 , "type": "Impression" ,    "imgsrc":"/images/impression/impression5.jpg"},
     { "id": 16, "title": "live Drawing" ,         "price": 510 , "type": "Drawing" ,       "imgsrc":"/images/drawing/drawing1.jpg"},
     { "id": 17, "title": "Modern Drawing" ,       "price": 600 , "type": "Drawing" ,       "imgsrc":"/images/drawing/drawing2.jpg"},
-    { "id": 18, "title": "Modern Drawing" ,       "price": 880 , "type": "Drawing" ,       "imgsrc":"/images/drawing/drawing1.jpg"},
+    { "id": 18, "title": "Modern Drawing" ,       "price": 880 , "type": "Drawing" ,       "imgsrc":"/images/drawing/drawing3.jpg"},
     { "id": 19, "title": "Modern Drawing" ,       "price": 550 , "type": "Drawing" ,       "imgsrc":"/images/drawing/was-it-not-a-lie.jpg"},
     { "id": 20, "title": "Artistic photography" , "price": 530 , "type": "photography" ,   "imgsrc":"/images/photograpy/photo3.jpg"}
    

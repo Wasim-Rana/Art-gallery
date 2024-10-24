@@ -631,6 +631,11 @@ span {
     }
 }
 
+
+#about h2, #about h3, #about p, #about ul li {
+    animation: fadeIn 2s ease-in-out;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -639,11 +644,6 @@ span {
         opacity: 1;
     }
 }
-
-#about h2, #about h3, #about p, #about ul li {
-    animation: fadeIn 2s ease-in-out;
-}
-
 
 /* Contact Section */
 #contact {

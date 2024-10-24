@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerNumberInput = document.getElementById('customer-number');
     const cartMessageContainer = document.getElementById('cart-message-container');
     const form = document.querySelector('form');
-    const paymentFormSection = document.getElementById('payment-form-section');
-
+    
     function displayCartItems() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cartItemsContainer.innerHTML = '';
@@ -54,75 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call function to initialize display
     displayCartItems();
 
-    // Payment Method Selection
-    let selectedPaymentMethod = '';
-
-    function clearPaymentForm() {
-        const paymentFormSection = document.getElementById('payment-form-section');
-        paymentFormSection.style.display = 'none';
-        paymentFormSection.innerHTML = '';  // Clear content
-    }
-
-    // Google Pay Button Click Event
-document.getElementById('gpay-btn').addEventListener('click', () => {
-    clearPaymentForm();
-    const paymentFormSection = document.getElementById('payment-form-section');
-    paymentFormSection.innerHTML = `
-        <p>Google Pay</p>
-        <button id="gpay-submit-btn">Pay with Google Pay</button>
-    `;
-    paymentFormSection.style.display = 'block';  // Show the form
-    document.getElementById('gpay-submit-btn').addEventListener('click', () => {
-        alert('Payment with Google Pay initiated!');
-        completeOrder();
-    });
-});
-
-// PayPal Button Click Event
-document.getElementById('paypal-btn').addEventListener('click', () => {
-    clearPaymentForm();
-    const paymentFormSection = document.getElementById('payment-form-section');
-    paymentFormSection.innerHTML = `
-        <p>PayPal</p>
-        <button id="paypal-submit-btn">Pay with PayPal</button>
-    `;
-    paymentFormSection.style.display = 'block';  // Show the form
-    document.getElementById('paypal-submit-btn').addEventListener('click', () => {
-        alert('Payment with PayPal initiated!');
-        completeOrder();
-    });
-});
-
-// Credit Card Button Click Event
-document.getElementById('creditcard-btn').addEventListener('click', () => {
-    clearPaymentForm();
-    const paymentFormSection = document.getElementById('payment-form-section');
-    paymentFormSection.innerHTML = `
-        <p>Credit Card</p>
-        <div>
-            <input type="text" id="cc-number" placeholder="Card Number" required>
-            <input type="text" id="cc-name" placeholder="Card Holder Name" required>
-            <input type="month" id="cc-expiry" placeholder="Expiry Date" required>
-            <input type="text" id="cc-cvc" placeholder="CVC" required>
-        </div>
-        <button id="cc-submit-btn">Pay with Credit Card</button>
-    `;
-    paymentFormSection.style.display = 'block';  // Show the form
-    document.getElementById('cc-submit-btn').addEventListener('click', () => {
-        const ccNumber = document.getElementById('cc-number').value;
-        const ccName = document.getElementById('cc-name').value;
-        const ccExpiry = document.getElementById('cc-expiry').value;
-        const ccCVC = document.getElementById('cc-cvc').value;
-
-        if (ccNumber && ccName && ccExpiry && ccCVC) {
-            alert('Payment with Credit Card initiated!');
-            completeOrder();
-        } else {
-            alert('Please fill in all credit card fields.');
-        }
-    });
-});
-
     // Complete order function
     function completeOrder() {
         const customerName = customerNameInput.value.trim();
@@ -140,7 +70,6 @@ document.getElementById('creditcard-btn').addEventListener('click', () => {
                 customerNumber: customerNumber,
                 total: cart.reduce((total, item) => total + item.price, 0),
                 date: new Date().toISOString().split('T')[0],
-                paymentMethod: selectedPaymentMethod 
             };
             
             let orders = JSON.parse(localStorage.getItem('orders')) || [];
