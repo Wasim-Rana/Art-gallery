@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const productsContainer = document.querySelector('.products-container');
 
     const categoryList = document.querySelectorAll('.category-list li');
+    const popupModal = document.getElementById('popup-modal');
+    const popupTitle = document.getElementById('popup-title');
+    const popupImage = document.getElementById('popup-image');
+    const popupArtist = document.getElementById('popup-artist');
+    const popupMedium = document.getElementById('popup-medium');
+    const popupSize = document.getElementById('popup-size');
+    const popupPrice = document.getElementById('popup-price');
+    const popupDescription = document.getElementById('popup-description');
 
     function displayProducts(filteredProducts) {
         productsContainer.innerHTML = '';
@@ -35,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productElement = document.createElement('div');
             productElement.classList.add('product-item');
             productElement.innerHTML = `
-                <img src="${product.imgsrc}" alt="${product.title}">
+                <img src="${product.imgsrc}" alt="${product.title}" onclick="showPopup(${product.id})">
                 <h3>${product.title}</h3>
                 <p>Price: $${product.price}</p>
                 <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -43,7 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
             productsContainer.appendChild(productElement);
         });
     }
-    
+
+    window.showPopup = function(productId) {
+        const product = products.find(item => item.id === productId);
+        if (product) {
+            popupTitle.textContent = product.title;
+            popupImage.src = product.imgsrc;
+            popupArtist.textContent = product.artist || "Unknown Artist";
+            popupMedium.textContent = product.medium || "Unknown Medium";
+            popupSize.textContent = product.size || "Unknown Size";
+            popupPrice.textContent = product.price;
+            popupDescription.textContent = product.description || "No description available";
+            popupModal.style.display = 'flex';
+        }
+    };
+
+    // Function to close the popup
+    window.closePopup = function() {
+        popupModal.style.display = 'none';
+    };
+
     categoryList.forEach(category => {
     category.addEventListener('click', (event) => {
         const selectedType = category.getAttribute('data-filter'); //event.target.value;
