@@ -53,7 +53,7 @@
                 <li data-filter="all">All</li>
                 <li data-filter="Sculpture">Sculpture</li>
                 <li data-filter="Painting">Painting</li>
-                <li data-filter="Photography">Photography</li>
+                <li data-filter="photography">Photography</li>
                 <li data-filter="Impression">Impression</li>
                 <li data-filter="Drawing">Drawing</li>
             </ul>
@@ -63,18 +63,19 @@
             <!-- Populate products dynamically -->
         </div>
     </div>
-    <div id="popup-modal" class="modal">
-        <div class="modal-content">
-            <span onclick="closePopup()" class="close">&times;</span>
-            <img id="popup-image" src="" alt="Art Image">
-            <h3 id="popup-title"></h3>
-            <p><strong>Artist:</strong> <span id="popup-artist"></span></p>
-            <p><strong>Medium:</strong> <span id="popup-medium"></span></p>
-            <p><strong>Size:</strong> <span id="popup-size"></span></p>
-            <p><strong>Price:</strong> $<span id="popup-price"></span></p>
-            <p id="popup-description"></p>
+    <div id="popup-modal">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 class="popup-title" id="popup-title"></h2>
+            <img id="popup-image" class="popup-image" src="" alt="">
+            <p class="popup-info"><strong>Artist:</strong> <span id="popup-artist"></span></p>
+            <p class="popup-info"><strong>Medium:</strong> <span id="popup-medium"></span></p>
+            <p class="popup-info"><strong>Size:</strong> <span id="popup-size"></span></p>
+            <p class="popup-price">Price: $<span id="popup-price"></span></p>
+            <p class="popup-description" id="popup-description"></p>
         </div>
     </div>
+    
 
     <footer>
         <section class="footer-main">
