@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categoryList.forEach(category => {
     category.addEventListener('click', (event) => {
-        const selectedType = category.getAttribute('data-filter'); //event.target.value;
+        const selectedType = category.getAttribute('data-filter'); 
         const filteredProducts = selectedType === 'all' ? products : products.filter(product => product.type === selectedType);
         displayProducts(filteredProducts);
     });
