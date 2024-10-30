@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Indus Valley Art Gallery</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="nav2">
+                <a href="index.html" class="logo">
+                
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-dashboard">
+        <div class="side-panel">
+            <h3>Admin Options</h3>
+            <ul>
+                <li><a href="#orders-container" id="view-orders">View Orders</a></li>
+                <!-- <li><a href="#users-container" id="logged-in-users">View Logged-in Users</a></li> -->
+                <li><a href="#contact-container" id="contact-submissions">Contact Submissions</a></li>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </div>
+        <div class="main-container">
+            <h1>Dashboard</h1>
+            
+            <!-- Orders Section -->
+            <div id="orders-container" class="content-section">
+                <h2>Orders</h2>
+                <!-- Orders will be dynamically populated here -->
+            </div>
+            
+            <!-- Logged-in Users Section -->
+            <!-- <div id="users-container" class="content-section">
+                <h2>Logged-in Users</h2> -->
+                <!-- Logged-in users will be displayed here -->
+            <!-- </div> -->
+
+            <!-- Contact Submissions Section -->
+            <div id="contact-container" class="content-section">
+                <h2>Contact Submissions</h2>
+                <!-- Contact form submissions will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>

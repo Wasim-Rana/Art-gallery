@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Indus Valley Art Gallery</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="login-container">
+        
+    <div id="login-options">
+        
+            <button id="admin-login-btn">Login as Admin</button>
+        
+            <button id="user-login-btn">Login as User</button>
+        
+        </div>
+
+    
+        <form id="admin-login-form" style="display: none;">
+            <!-- Admin login form -->
+            <h2>Admin Login</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+
+            <button type="submit">Login</button>
+            
+        </form>
+
+        <form id="user-login-form" style="display: none;">
+            <!-- User login form -->
+            <h2>User Login</h2>
+            <label for="user-username">Username</label>
+            <input type="text" id="user-username" name="user-username">
+
+            <label for="user-password">Password</label>
+            <input type="password" id="user-password" name="user-password">
+
+            <button type="submit">Login</button>
+            
+            <p id="toggle-register-login" style="display:none;">Not registered? Sign up here.</p>
+            <p id="toggle-admin-login" style="display:none;">login as Admin.</p>
+   
+        </form>
+
+        <form id="user-register-form" style="display: none;">
+            <!-- User registration form -->
+            <h2>Register</h2>
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" name="register-username">
+
+            <label for="register-email">email</label>
+            <input type="email" id="register-email" name="register-email">
+
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" name="register-password">
+
+            <button type="submit">Register</button>
+            
+            <p id="toggle-user-login" style="display:none;">Already have an account ? Sign in .</p>
+
+        </form>
+ </div>
+        
+
+    <script src="scripts/admin.js"></script>
+</body>
+
+</body>
+</html>
