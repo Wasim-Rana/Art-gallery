@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    background: url('/styles/about_background.jpg') no-repeat center center/cover ;
+    background: url('./styles/about_background.jpg') no-repeat center center/cover ;
     /* background-color: rgb(204, 204, 204); */
     overflow-x: hidden;
     overflow-y: auto;
