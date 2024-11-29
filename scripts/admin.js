@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminLoginBtn = document.getElementById('admin-login-btn');
     const userLoginBtn = document.getElementById('user-login-btn');
 
-    if (adminLoginBtn && userLoginBtn) {
+    if (adminLoginBtn && userLoginBtn) { 
         
         adminLoginBtn.addEventListener('click', () => {
             document.getElementById('login-options').style.display = 'none';
